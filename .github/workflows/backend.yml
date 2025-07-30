@@ -49,6 +49,16 @@ jobs:
           sed -i 's/DB_DATABASE=.*/DB_DATABASE=testing/' .env
           sed -i 's/DB_USERNAME=.*/DB_USERNAME=user/' .env
           sed -i 's/DB_PASSWORD=.*/DB_PASSWORD=password/' .env
+      - name: Wait for MySQL to be ready
+        run: |
+          for i in {1..30}; do
+            if mysqladmin ping -h127.0.0.1 -uuser -ppassword --silent; then
+              echo "MySQL is ready"
+              break
+            fi
+            echo "Waiting for MySQL..."
+            sleep 2
+          done
       - name: Run migrations
         run: php artisan migrate --force
       - name: Run Laravel tests
