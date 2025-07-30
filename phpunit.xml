@@ -33,9 +33,7 @@
         <env name="TELESCOPE_ENABLED" value="false"/>
     </php>
 
-    <coverage processUncoveredFiles="true">
-        <report>
-            <clover outputFile="coverage.xml"/>
-        </report>
-    </coverage>
+    <logging>
+        <log type="coverage-clover" target="coverage.xml"/>
+    </logging>
 </phpunit>
