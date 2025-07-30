@@ -31,16 +31,21 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-      - name: setup php
+
+      - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with: 
           php-version: '8.2'
-      - name: install composer dependencies
+
+      - name: Install Composer dependencies
         run: composer install --no-progress --prefer-dist --optimize-autoloader
-      - name: cp .env.example
+
+      - name: Copy .env file
         run: cp .env.example .env
-      - name: key generate
+
+      - name: Generate APP key
         run: php artisan key:generate
+
       - name: Set DB environment variables
         run: |
           sed -i 's/DB_CONNECTION=.*/DB_CONNECTION=mysql/' .env
@@ -49,6 +54,7 @@ jobs:
           sed -i 's/DB_DATABASE=.*/DB_DATABASE=testing/' .env
           sed -i 's/DB_USERNAME=.*/DB_USERNAME=user/' .env
           sed -i 's/DB_PASSWORD=.*/DB_PASSWORD=password/' .env
+
       - name: Wait for MySQL to be ready
         run: |
           for i in {1..30}; do
@@ -59,7 +65,15 @@ jobs:
             echo "Waiting for MySQL..."
             sleep 2
           done
-      - name: Run migrations
+
+      - name: Run Laravel migrations
         run: php artisan migrate --force
-      - name: Run Laravel tests
-        run: php artisan test
+
+      - name: Run PHPUnit tests and generate coverage
+        run: php artisan test --coverage-clover=coverage.xml
+
+      - name: Upload coverage report to Codecov
+        uses: codecov/codecov-action@v4
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          files: coverage.xml
