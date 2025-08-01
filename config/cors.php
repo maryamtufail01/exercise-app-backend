@@ -6,11 +6,8 @@ return [
 
     'allowed_methods' => ['*'],
 
-    'allowed_origins' => [
-        'http://localhost:3000',   // Keep this if needed
-        'http://frontend.local:1000', //frontend
-    ],
-
+    // Allow any origin dynamically (local or production)
+    'allowed_origins' => ['*'],
 
     'allowed_origins_patterns' => [],
 
@@ -20,6 +17,8 @@ return [
 
     'max_age' => 0,
 
+    // Keep false if using tokens (JWT/Bearer)
+    // Set true if using cookie/session authentication
     'supports_credentials' => false,
 
 ];
