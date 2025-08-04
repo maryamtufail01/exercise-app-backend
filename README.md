@@ -1,6 +1,6 @@
 # MoveMate Backend (Laravel + MySQL)
 
-MoveMate is a **minimal exercise tracking app** built only to **showcase DevOps and deployment skills**.  
+MoveMate is a **minimal exercise tracking app** built primarily to **showcase DevOps and deployment skills**.  
 
 - Functionality is intentionally simple:
   1. **User Signup**
@@ -8,22 +8,23 @@ MoveMate is a **minimal exercise tracking app** built only to **showcase DevOps 
   3. **Dashboard:**  
      *"Welcome to your Exercise Dashboard! Track your progress and stay fit"*  
      with a **Logout button**
-
 - **No additional exercise features** are implemented.  
-- The purpose of this project is to **demonstrate professional DevOps practices**, including:
-  - Cloud deployment on AWS EC2
-  - Reverse proxy with Apache
-  - SSL with Let’s Encrypt
-  - Systemd backend service (no `php artisan serve`)
-  - Automatic daily backups
-  - Firewall & security hardening
+- The purpose of this project is to **demonstrate professional cloud & DevOps practices**, not complex app development.
 
 ---
 
-## 🚀 Live Demo
+## 🎥 Demo
 
-- **Frontend:** [https://movemate.duckdns.org](https://movemate.duckdns.org)
-- **Backend API Test Endpoint:** [https://movemate.duckdns.org/api/test](https://movemate.duckdns.org/api/test)
+[![Watch the demo](https://img.youtube.com/vi/3gB2V_853ew/maxresdefault.jpg)](https://youtu.be/3gB2V_853ew)
+
+---
+
+## 🚀 Live Demo (Optional)
+
+- **Frontend:** [https://movemate.duckdns.org](https://movemate.duckdns.org)  
+- **Backend Test Endpoint:** [https://movemate.duckdns.org/api/test](https://movemate.duckdns.org/api/test)  
+
+> *Live demo may be offline to save AWS free-tier credits. See demo video above instead.*
 
 ---
 
@@ -38,17 +39,17 @@ MoveMate is a **minimal exercise tracking app** built only to **showcase DevOps 
 
 ---
 
-## 📦 Project Features
+## 📦 Professional Features
 
-- ✅ Secure **HTTPS backend** using Let’s Encrypt SSL  
+- ✅ Secure **HTTPS backend** with Let’s Encrypt SSL  
 - ✅ Laravel backend running via **systemd service** (no `php artisan serve`)  
-- ✅ **Apache reverse proxy** with React frontend on port 80/443  
+- ✅ **Apache reverse proxy** for backend on port 9000 and React frontend on 80/443  
 - ✅ **Firewall (UFW)** only allows ports 22, 80, 443  
 - ✅ **Daily automatic backups** of:
-  - Laravel `.env` file
-  - MySQL database
+  - Laravel `.env` file  
+  - MySQL database  
   - 7-day retention with auto-clean  
-- ✅ **DuckDNS auto-update** every 5 minutes to handle changing AWS IPs
+- ✅ **DuckDNS auto-update** every 5 minutes to handle changing AWS IPs  
 
 ---
 
@@ -69,23 +70,15 @@ MoveMate is a **minimal exercise tracking app** built only to **showcase DevOps 
 
 ---
 
-## 🔐 Security
+## 🔐 Security & Maintenance
 
 - **UFW firewall** enabled (22/80/443)  
-- **SSL auto-renewed** by Certbot  
+- **SSL auto-renewed** with Certbot  
 - **DuckDNS dynamic IP updates** prevent downtime  
-- **Daily backups** with `.env` and DB dump to `/home/ubuntu/backups`
+- **Daily backups** stored in `/home/ubuntu/backups` with auto-clean after 7 days
 
 ---
 
-## 📌 Next Professional Step (Optional)
-
-Add **CI/CD with GitHub Actions**:  
-- Auto-deploy backend to EC2 when pushing to `main` branch  
-- Restart systemd service automatically  
-- Zero manual steps for deployment
-
----
 
 ## 👤 Author
 
