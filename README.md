@@ -1,7 +1,22 @@
 # MoveMate Backend (Laravel + MySQL)
 
-MoveMate is a simple **exercise tracking application** built with **Laravel (backend)** and **React (frontend)**.  
-This repository contains the **backend API**, including authentication, signup/login, and exercise data handling.
+MoveMate is a **minimal exercise tracking app** built only to **showcase DevOps and deployment skills**.  
+
+- Functionality is intentionally simple:
+  1. **User Signup**
+  2. **User Login**
+  3. **Dashboard:**  
+     *"Welcome to your Exercise Dashboard! Track your progress and stay fit"*  
+     with a **Logout button**
+
+- **No additional exercise features** are implemented.  
+- The purpose of this project is to **demonstrate professional DevOps practices**, including:
+  - Cloud deployment on AWS EC2
+  - Reverse proxy with Apache
+  - SSL with Let’s Encrypt
+  - Systemd backend service (no `php artisan serve`)
+  - Automatic daily backups
+  - Firewall & security hardening
 
 ---
 
